@@ -4,6 +4,8 @@
 	<p>Password: <input type="text" name="password"></p>
 	<p><input type="submit" name="Login" id="Login"></p>
 </form>
+<hr>
+<a href="/users/new" id="register"><button>Register New User</button></a>
 <% if flash["error"] %>
 	<%= flash["error"] %>
 <% end %>

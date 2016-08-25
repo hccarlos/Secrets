@@ -8,4 +8,6 @@
 	<input type="text" name="user[name]" value="<%= @user.name %>">
 	<input type="submit" name="update" value="Update">
 </form>
+<hr>
+<a href="/users/<%=current_user.id%>" id="back"><button>Back to Profile</button></a>
 <a href= "/users/<%= @user.id %>" data-method='delete' name="Delete Account"><button>Delete Account</button></a>

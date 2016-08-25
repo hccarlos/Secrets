@@ -2,14 +2,18 @@
 	<div>
 		<a href="/sessions/logout" id="logout"><button>Log Out</button></a>
 		<a href="/users/<%= current_user.id %>/edit"><button>Edit Profile</button></a>
-		<p><%= current_user.name %></p>
-		<p>New Secret</p>
+		<p><a href="/secrets" id="secretsBoard">Secrets Board</a></p>
+		<hr>
+		<p>Welcome, <%= current_user.name %></p>
+		<p>Enter New Secret Below: </p>
 		<form action="/secrets" method="POST">
 		    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
 		    <input type="hidden" name="user_id" value="<%=@urlID%>">
 			<textarea name="newSecret" rows="4" cols="50"></textarea>
-			<input type="submit" name="create_secret" value="Create Secret">
+			<p><input type="submit" name="create_secret" value="Create Secret"></p>
 		</form>
+		<h3>Your secrets</h3>
+		<hr>
 		<div>
 			<% @mySecrets.each do |mySecret| %>
 				<p><%= mySecret.content %></p>
