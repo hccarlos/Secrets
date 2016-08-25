@@ -24,21 +24,21 @@ RSpec.describe LikesController, type: :controller do
     end
   end
 
-  # describe "when logged in" do
-  #   let(:params) do
-  #     { user_id: @user2.id, secret_id: @secret2.id }
-  #   end
-  #   it "can like" do
-  #     log_in @user2
-  #     # params = { user_id: @user2.id, secret_id: @secret2.id }
-  #     post "/likes", params
-  #     visit "/secrets"
-  #     expect(response).to redirect_to('/secrets')
-  #     # expect(current_path).to eq('/secrets')
-  #     # expect(page).to have_text('Secret liked')
-  #   end
-  #   it "can unlike" do
-  #   end
+  describe "when logged in" do
+    let(:params) do
+      { user_id: @user2.id, secret_id: @secret2.id }
+    end
+    it "can like" do
+      log_in @user2
+      # params = { user_id: @user2.id, secret_id: @secret2.id }
+      post "/likes", params
+      # redirect_to('/secrets')
+      # expect(current_path).to eq('/secrets')
+      # expect(page).to have_text('Secret liked')
+    end
+    it "can unlike" do
+    end
+  end
 
   # describe "when signed in as the wrong user" do
   #   before do
