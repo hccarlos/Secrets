@@ -1,0 +1,8 @@
+<form action="/users" method="POST">
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	Email <input type="text" name="user[email]">
+	Name <input type="text" name="user[name]">
+	Password <input type="text" name="user[password]">
+	Password Confirmation <input type="text" name="user[password_confirmation]">
+	<input type="submit" name="Join" id="Join">
+</form>

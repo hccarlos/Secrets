@@ -1,0 +1,30 @@
+<% if current_user.id == @urlID %>
+	<div>
+		<a href="/sessions/logout" id="logout"><button>Log Out</button></a>
+		<a href="/users/<%= current_user.id %>/edit"><button>Edit Profile</button></a>
+		<p><%= current_user.name %></p>
+		<p>New Secret</p>
+		<form action="/secrets" method="POST">
+		    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+		    <input type="hidden" name="user_id" value="<%=@urlID%>">
+			<textarea name="newSecret" rows="4" cols="50"></textarea>
+			<input type="submit" name="create_secret" value="Create Secret">
+		</form>
+		<div>
+			<% @mySecrets.each do |mySecret| %>
+				<p><%= mySecret.content %></p>
+				<p><%= mySecret.likes.count %> likes</p>
+				<form action="/secrets/<%= mySecret.id %>" method='post'>
+      				<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+					<input type='hidden' name='_method' value='delete'>
+					<input type='submit' id="deleteSecret" name='Delete' value='Delete'>
+				</form>
+				<hr>
+			<% end %>
+		</div>
+	</div>
+<% else %>
+	<div>
+		<a href="/sessions/new" id="signin"><button>Sign In</button></a>
+	</div>
+<% end %>
